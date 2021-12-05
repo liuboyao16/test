@@ -12,4 +12,4 @@ res = fit_dyFiles.prepare_measured_set_for_fitting('NumVec',[18713],'initStr', '
 
 res = fit_dyFiles.fit_dyFiles_freq_domain(res,@Vibrations_GRu.get_vibrations,3,1, [],[0 10 0 0.01],[3 7]);
   
-![some test figures](https://github.com/liuboyao16/test/blob/main/examples/2020-05-26%20(3).png)
+![some test figures](https://github.com/liuboyao16/test/blob/main/examples/dy018713.jpg)
