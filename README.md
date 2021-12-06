@@ -23,7 +23,7 @@ axis([-5 15 0 1e9]); xlabel('\DeltaE/meV'); ylabel('Intensity/arbitrary units');
 
 The spectrum should be generated as shown below.
 
-![some test figures](https://github.com/liuboyao16/test/blob/main/examples/dy018713.jpg)
+![some test figures](https://github.com/liuboyao16/test/blob/main/example/dy018713.jpg)
 
 #### An explanation of the commands
 
