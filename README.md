@@ -4,6 +4,8 @@ Atom Surface Scattering Analysis
 
 ## Analyse spin echo data in the energy domain
 
+### Generate the spectrum
+
 All the measurements HeSE takes now is stored in a .mat file, so It will be most convenient to use MATLAB to analyse them. First of all, we give an example file (examples/dy018667.mat). In order to analyse it in the energy domain, or to extract the phonon spectrum, one can do the following:
 
 In the ASSA folder, use the following 3 cammands:
@@ -23,7 +25,7 @@ The spectrum should be generated as shown below.
 
 ![some test figures](https://github.com/liuboyao16/test/blob/main/examples/dy018713.jpg)
 
-### An explanation of the commands
+#### An explanation of the commands
 
 * `postprocess_dyfiles.postprocess_dyfiles` is a function used to process the files obtained. The original .mat file has only one structure called `meas`, which contains all the raw data. This process creates an additional structure called `processed_meas`.
   * In the example, the file's name is `'example/dy018713'`, which are split into `'example/dy0'` and `[18713]`. `'example/dy0'` is the `'initStr'` variable, and `[18713]` is the `'NumVec'` variable. You can put a 
