@@ -41,7 +41,10 @@ plot(meas.ibase,meas.mean.Preal);
 plot(meas.ibase,meas.mean.Pimag);
 xlabel('base current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
 ```
-The result should look like
+The result should look like:
+
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018713_pol.jpg" width="600">
 
-In the simplest case, there will be no outlier the base current in the measurement is evenly spaced, the 
+This file actually shows the simplest case. There can be various features in the data that need dealing with, which are listed below.
+
+* Outliers in the data. 
