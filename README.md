@@ -19,5 +19,6 @@ The phonon spectrum should be generated as shown in the figure below. Besides, t
 
 ### An explanation of the commands
 
-* `postprocess_dyfiles.postprocess_dyfiles` is a function used to process the files obtained.
-  * In the example, the file's name is `'example/dy018713'`, which are split into `'example/dy0'` and `[18713]`. `'example/dy0'` is the `'initStr'` variable, and `[18713]` is the `'NumVec'` variable.
+* `postprocess_dyfiles.postprocess_dyfiles` is a function used to process the files obtained. The original .mat file has only one structure called `meas`, which contains all the raw data. This process creates an additional structure called `processed_meas`.
+  * In the example, the file's name is `'example/dy018713'`, which are split into `'example/dy0'` and `[18713]`. `'example/dy0'` is the `'initStr'` variable, and `[18713]` is the `'NumVec'` variable. You can put a 
+  * Sometimes the system can have a glitch and the signal will have an outlier. In that case we will set `'fixFalsePositive'` to `0` in order to fix that. In the current example it is not needed, so `'fixFalsePositive'` is `1`.
