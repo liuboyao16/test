@@ -48,7 +48,7 @@ The result should look like:
 
 This file actually shows the simplest case. There is no outlier in the data. If you look at the base current you will find that it is equally spaced. However, that may not always be the case. There can be various features in the data that need dealing with, which are listed below.
 
-### Outliers in the data.
+#### Outliers in the data.
 An example of such a case can be found in examples/dy018713.mat. Use the following commands again.
 
 ```matlab
@@ -71,3 +71,9 @@ postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18725]
 This will give you a panel where MATLAB automatically identifies the outliers and mark them in red, as shown below. Some points are wrongly identified as outlier, you can right-click to remove them. If the function did not recognise some outliers, you can also manually add them by left-clicking them. After maring all the outliers in red, simply press Enter to go to the next figure or to finish.
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018863_removespikes.jpg" width="600">
+
+After the outliers are removed, by default there will just be a "hole" in the data. However, sometimes that is undesirable, especially when we are measuring phonons becuase we need to Fourier transform the data. We can add `,'keepIlength',1` to the argument of the function. which will "fill the holes" using linear interpolation from the neighbouring data points.
+
+#### The solonoid current not evenly spaced
+
+`meas.ibase` tells you about the solenoid currents used. Sometimes you will find that it is not evenly spaced, so in principle you cannot use Fast Fourier Transform (fft) to process that. In order to get around this, you can linearly interpolate it by adding `,'intpI',linspace(0,10,2001)` as an argument of the `postprocess_dyfiles.postprocess_dyfile` function.
