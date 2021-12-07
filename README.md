@@ -63,9 +63,11 @@ we can find that the signal does have an outlier at around 0.83 A.
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018863_pol.jpg" width="600">
 
-The function `postprocess_dyfiles.postprocess_dyfiles` automatically fix that problems. There are 8 loops taken in total, by comparing In order to fix that, we can change `'fixFalsePositive'` from `1` to `0`, so the postprocessing will become
+In order to fix that, we can change `'fixFalsePositive'` from `1` to `0`, so the postprocessing will become
 
 ```matlab
 postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18725],'reProcessing',1,'fixFalsePositive',0);
 ```
+This will give you a panel where MATLAB automatically identifies the outliers and mark them in red, as shown below. Some points are wrongly identified as outlier, you can right-click to remove them. If the function did not recognise some outliers, you can also manually add them by left-click them.
+
 
