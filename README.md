@@ -45,6 +45,25 @@ The result should look like:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018713_pol.jpg" width="600">
 
-This file actually shows the simplest case. There can be various features in the data that need dealing with, which are listed below.
+This file actually shows the simplest case. There is no outlier in the data. If you look at the base current you will find that it is equally spaced. However, that may not always be the case. There can be various features in the data that need dealing with, which are listed below.
 
-* Outliers in the data. 
+### Outliers in the data.
+An example of such a case can be found in examples/dy018713.mat. Use the following commands again.
+
+```matlab
+figure; hold on
+load('examples/dy018725.mat')
+plot(meas.ibase,meas.mean.Preal);
+plot(meas.ibase,meas.mean.Pimag);
+xlabel('base current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
+```
+
+we can find that the signal does have an outlier.
+
+<img src="https://github.com/liuboyao16/test/blob/main/examples/dy018725_pol.jpg" width="600">
+
+In order to fix that, we can change `'fixFalsePositive'` from `1` to `0`, so the postprocessing will become
+
+```matlab
+postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18725],'fixFalsePositive',0);
+```
