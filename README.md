@@ -51,7 +51,7 @@ The result should look like:
 This file actually shows the simplest case. There is no outlier in the data. If you look at the solenoid current you will find that it is equally spaced. However, that may not always be the case. There can be various features in the data that need dealing with, which are listed below.
 
 #### Outliers in the data.
-An example of such a case can be found in examples/dy018713.mat. Use the following commands again.
+An example of such a case can be found in examples/dy018863.mat. Use the following commands again.
 
 ```matlab
 figure; hold on
@@ -68,17 +68,17 @@ we can find that the signal does have an outlier at around 0.83 A.
 In order to fix that, we can change `'fixFalsePositive'` from `1` to `0`, so the postprocessing will become
 
 ```matlab
-postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18725],'reProcessing',1,'fixFalsePositive',0);
+postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18863],'reProcessing',1,'fixFalsePositive',0);
 ```
-This will give you a panel where MATLAB automatically identifies the outliers and marks them in red, as shown below. Some points are wrongly identified as outlier, you can right-click to remove them. If the function did not recognise some outliers, you can also manually add them by left-clicking them. After maring all the outliers in red, simply press Enter to go to the next figure or to finish.
+This will give you a panel where MATLAB automatically identifies the outliers and marks them in red, as shown below. Some points are wrongly identified as outliers. You can right-click to remove them. If the function did not recognise some outliers, you can also manually add them by left-clicking them. After marking all the outliers in red, simply press Enter to go to the next figure or to finish.
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018863_removespikes.jpg" width="600">
 
-After the outliers are removed, by default there will just be a "hole" in the data. However, sometimes that is undesirable, especially when we are measuring phonons becuase we need to Fourier transform the data. We can add `,'keepIlength',1` to the argument of the function. which will "fill the holes" using linear interpolation from the neighbouring data points.
+After the outliers are removed, by default there will just be a "hole" in the data. However, sometimes that is undesirable, especially when we are measuring phonons, becuase we need to Fourier transform the data. We can add `,'keepIlength',1` to the arguments of the function. which will "fill the holes" by linearly interpolating the neighbouring data points.
 
 #### The solenoid current not evenly spaced
 
-`examples/dy019253` is an example measurement in which the solenoid current is not evenly spaced. We can look at the measurement by typing the following commands in MATLAB.
+examples/dy019253 is an example measurement in which the solenoid current is not evenly spaced. We can look at the measurement by typing the following commands in MATLAB.
 
 ```matlab
 figure; hold on
@@ -87,6 +87,7 @@ plot(meas.ibase,meas.mean.Preal,'o','color','r');
 plot(meas.ibase,meas.mean.Pimag,'o','color','b');
 xlabel('Solenoid current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
 ```
+
 The result should look like:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pol_o.jpg" width="600">
@@ -109,4 +110,4 @@ to see the spectrum:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pho.jpg" width="600">
 
-When interpolating the data, try to keep the range of the query points within the range of sample points. For example, don't make `'intpI'` be `0:0.001:100` if `meas.ibase` is only from 0 A to 10 A. If not, there can be significant distortion in the generated spectrum.
+When interpolating the data, try to keep the range of the query points within the range of data points. For example, don't make `'intpI'` be `0:0.001:100` if `meas.ibase` is only from 0 A to 10 A. If not, there can be significant distortion in the generated spectrum.
