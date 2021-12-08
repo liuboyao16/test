@@ -90,3 +90,19 @@ The result should look like:
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pol_o.jpg" width="600">
 
 You will find that obviously the current is not evenly spaced, so in principle you cannot use Fast Fourier Transform (fft) to process that. In order to get around this, you can linearly interpolate it by adding `,'intpI',linspace(0,10,2001)` as an argument of the `postprocess_dyfiles.postprocess_dyfile` function.
+
+```matlab
+postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[19253],'fixFalsePositive',1,'reProcessing',1,'intpI',0:0.001:8);
+res = fit_dyFiles.prepare_measured_set_for_fitting('initStr','examples/dy0','NumVec',[19253]);
+```
+
+The polarisation will be interpolated now, use
+
+```matlab
+plot(res(1).Energ_meV,res(1).SKw)
+axis([-5 15 0 1e9]); xlabel('\DeltaE/meV'); ylabel('Intensity/arbitrary units');
+```
+
+to see the spectrum:
+
+
