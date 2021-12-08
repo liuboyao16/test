@@ -105,4 +105,4 @@ axis([-5 15 0 1e9]); xlabel('\DeltaE/meV'); ylabel('Intensity/arbitrary units');
 
 to see the spectrum:
 
-
+<img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pho.jpg" width="600">
