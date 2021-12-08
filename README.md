@@ -40,8 +40,8 @@ The raw data taken in a typical spin echo measurement, such as examples/dy018713
 ```matlab
 figure; hold on
 load('examples/dy018713.mat')
-plot(meas.ibase,meas.mean.Preal);
-plot(meas.ibase,meas.mean.Pimag);
+plot(meas.ibase,meas.mean.Preal,'color','r');
+plot(meas.ibase,meas.mean.Pimag,'color','b');
 xlabel('base current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
 ```
 The result should look like:
@@ -56,8 +56,8 @@ An example of such a case can be found in examples/dy018713.mat. Use the followi
 ```matlab
 figure; hold on
 load('examples/dy018863.mat')
-plot(meas.ibase,meas.mean.Preal);
-plot(meas.ibase,meas.mean.Pimag);
+plot(meas.ibase,meas.mean.Preal,'color','r');
+plot(meas.ibase,meas.mean.Pimag,'color','b');
 xlabel('base current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
 ```
 
@@ -83,8 +83,8 @@ After the outliers are removed, by default there will just be a "hole" in the da
 ```matlab
 figure; hold on
 load('examples/dy019253.mat')
-plot(meas.ibase,meas.mean.Preal,'o');
-plot(meas.ibase,meas.mean.Pimag,'o');
+plot(meas.ibase,meas.mean.Preal,'o','color','r');
+plot(meas.ibase,meas.mean.Pimag,'o','color','b');
 xlabel('Solenoid current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
 ```
 The result should look like:
