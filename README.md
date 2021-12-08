@@ -6,13 +6,15 @@ Atom Surface Scattering Analysis
 
 ### Generate the spectrum
 
-All the measurements HeSE takes now is stored in a .mat file, so It will be most convenient to use MATLAB to analyse them. First of all, we give an example file (examples/dy018667.mat). In order to analyse it in the energy domain, or to extract the phonon spectrum, one can do the following:
+All the measurements HeSE takes now is stored in a .mat file, so It will be most convenient to use MATLAB to analyse them. First of all, we give an example file (*examples/dy018713.mat*). In order to analyse it in the energy domain, or to extract the phonon spectrum, one can do the following:
 
-In the ASSA folder, use the following 2 cammands:
+In the ASSA folder, use the cammands:
+
 ```matlab
 postprocess_dyfiles.postprocess_dyfile('initStr','examples/dy0','NumVec',[18713],'reProcessing',1,'fixFalsePositive',1);
 res = fit_dyFiles.prepare_measured_set_for_fitting('initStr','examples/dy0','NumVec',[18713]);
 ```
+
 To look at the phonon spectrum, we can do
 
 ```matlab
@@ -106,3 +108,5 @@ axis([-5 15 0 1e9]); xlabel('\DeltaE/meV'); ylabel('Intensity/arbitrary units');
 to see the spectrum:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pho.jpg" width="600">
+
+When interpolating the data, try to keep the range of the query points within the range of sample points. For example, don't make `'intpI'` be `0:0.001:100` if `meas.ibase` is only within 0 A to 10 A. If not, there can be significant distortion in the generated spectrum.
