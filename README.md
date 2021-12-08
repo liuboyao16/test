@@ -76,4 +76,14 @@ After the outliers are removed, by default there will just be a "hole" in the da
 
 #### The solenoid current not evenly spaced
 
+`examples/dy019253` is an example measurement in which the solenoid current is not evenly spaced. We can look at the measurement by typing the following commands in MATLAB.
+```matlab
+figure; hold on
+load('examples/dy019253.mat')
+plot(meas.ibase,meas.mean.Preal,'o');
+plot(meas.ibase,meas.mean.Pimag,'o');
+xlabel('Solenoid current/A'); ylabel('Spin polarisation'); legend('real','imaginary');
+```
+The result should look like:
+
 `meas.ibase` tells you about the solenoid currents used. Sometimes you will find that it is not evenly spaced, so in principle you cannot use Fast Fourier Transform (fft) to process that. In order to get around this, you can linearly interpolate it by adding `,'intpI',linspace(0,10,2001)` as an argument of the `postprocess_dyfiles.postprocess_dyfile` function.
