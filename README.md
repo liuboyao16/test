@@ -28,7 +28,7 @@ The spectrum should be generated as shown below.
 
 #### An explanation of the commands
 
-* `postprocess_dyfiles.postprocess_dyfiles` is a function used to process the files obtained. The original .mat file has only one structure called `meas`, which contains all the raw data. This process creates an additional structure called `processed_meas`.
+* `postprocess_dyfiles.postprocess_dyfiles` is a function used to process the raw data files that contains dynamics measurements. The original .mat file has only one structure called `meas`, which contains all the raw data. This function creates an additional structure called `processed_meas`, which is the processed data.
   * In the example, the file's name is `'examples/dy018713'`, which are split into `'examples/dy0'` and `[18713]`. `'examples/dy0'` is the `'initStr'` variable, and `[18713]` is the `'NumVec'` variable. You can put a vector containing multiple numbers, to process multiple files in a certain folder.
   * If `'reProcessing'` is set to `1`, the script will postprocess the files again even if it has been processed. If `'reProcessing'` is `0`, the function will not do anything to it.
   * Sometimes the system can have a glitch and the signal will have an outlier. In that case we will set `'fixFalsePositive'` to `0` in order to fix that. In the current example it is not needed, so `'fixFalsePositive'` is `1`.
@@ -36,7 +36,7 @@ The spectrum should be generated as shown below.
 
 ### Additional features of `postprocess_dyfiles.postprocess_dyfiles`
 
-The raw data taken in a typical spin echo measurement can be extracted and plotted using
+The raw data taken in a typical spin echo measurement, such as examples/dy018713.mat, can be extracted and plotted using
 ```matlab
 figure; hold on
 load('examples/dy018713.mat')
@@ -109,4 +109,4 @@ to see the spectrum:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy019253_pho.jpg" width="600">
 
-When interpolating the data, try to keep the range of the query points within the range of sample points. For example, don't make `'intpI'` be `0:0.001:100` if `meas.ibase` is only within 0 A to 10 A. If not, there can be significant distortion in the generated spectrum.
+When interpolating the data, try to keep the range of the query points within the range of sample points. For example, don't make `'intpI'` be `0:0.001:100` if `meas.ibase` is only from 0 A to 10 A. If not, there can be significant distortion in the generated spectrum.
