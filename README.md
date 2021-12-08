@@ -48,7 +48,7 @@ The result should look like:
 
 <img src="https://github.com/liuboyao16/test/blob/main/examples/dy018713_pol.jpg" width="600">
 
-This file actually shows the simplest case. There is no outlier in the data. If you look at the base current you will find that it is equally spaced. However, that may not always be the case. There can be various features in the data that need dealing with, which are listed below.
+This file actually shows the simplest case. There is no outlier in the data. If you look at the solenoid current you will find that it is equally spaced. However, that may not always be the case. There can be various features in the data that need dealing with, which are listed below.
 
 #### Outliers in the data.
 An example of such a case can be found in examples/dy018713.mat. Use the following commands again.
